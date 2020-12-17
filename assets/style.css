@@ -1,0 +1,6 @@
+.hero.is-medium.landing-bg{
+    background-repeat: no-repeat;
+    background: url('./img/night-2726010_1920.jpg');
+    background-size: cover;
+    background-position: center;
+}
