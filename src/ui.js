@@ -5,7 +5,6 @@ class UI{
     }
 
     showResults(data){
-        this.notify.innerHTML = "";
         const results = data.airports;
         let output = ``;
         results.forEach( result => {
@@ -19,6 +18,14 @@ class UI{
             output += `</tr>`;
 
         });
+        this.notify.innerHTML = `
+            <article class="message is-primary">
+                <div class="message-body">
+                    Showing <span class="tag is-success">${results.length}</span>
+                    results for ${data.term.toUpperCase()}
+                </div>
+            </article>
+        `;
 
         this.display.innerHTML = output;
     }
@@ -33,9 +40,6 @@ class UI{
             </article>
         `;
 
-        setTimeout(() => {
-            this.clearAlert();
-        }, 3000);
     }
 
     clearAlert(){
@@ -43,6 +47,15 @@ class UI{
         if(currentAlert){
             currentAlert.remove();
         }
+    }
+
+    inputSpinner(){
+        const spinner = document.querySelector('#loading');
+        spinner.classList.add('is-loading');
+
+        setTimeout(() => {
+            spinner.classList.remove('is-loading');
+        }, 2500);
     }
 }
 

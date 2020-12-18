@@ -5,7 +5,10 @@ import {UI, ui} from './ui';
 const searchAirport = document.querySelector('#search');
 
 // add event listner
-searchAirport.addEventListener('keyup', e => {
+searchAirport.addEventListener('keyup', e => { 
+
+	ui.inputSpinner();
+
 	const query = e.target.value.trim();
 
 	if (query !== '') {
@@ -25,10 +28,6 @@ searchAirport.addEventListener('keyup', e => {
 		api.onError = err => {
 			ui.showAlert(err);
 		}
-
-	} else {
-
-
 
 	}
 
